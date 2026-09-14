@@ -1,5 +1,6 @@
 // lib.typ
-// Classic Resume Template Logic
+// Public API of the classic resume template.
 
-#import "layout.typ": config, resume
-#import "components.typ": project-entry, resume-header, section-header, table, timeline-entry
+#import "config.typ": default-config
+#import "layout.typ": resume
+#import "components.typ": item-grid, project-entry, resume-header, section-header, timeline-entry

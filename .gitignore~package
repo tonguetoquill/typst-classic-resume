@@ -2,7 +2,7 @@
 .github/
 reference/
 scripts/
-main.pdf
+tests/
 pdfs/
 **.pdf
 fonts/

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Typst ${{ matrix.typst }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The oldest supported compiler (the `compiler` field of typst.toml)
+        # and the newest release.
+        typst: ["0.14.2", "0.15.1"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v5
+        with:
+          typst-version: ${{ matrix.typst }}
+
+      - name: Compile the example resume and the test suite
+        run: ./scripts/test.sh

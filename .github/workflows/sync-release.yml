@@ -1,0 +1,65 @@
+name: Sync Release Branches
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    name: release/${{ matrix.flavor }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        # Each flavor is main with `.gitignore~<flavor>` applied as its
+        # .gitignore: `core` drops the example template, `package` is what gets
+        # published to Typst Universe.
+        flavor: [core, package]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync release/${{ matrix.flavor }} branch
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          set -euo pipefail
+
+          branch="release/$FLAVOR"
+          ignore=".gitignore~$FLAVOR"
+
+          git fetch origin "$branch:$branch" || git branch "$branch"
+          git checkout "$branch"
+
+          # Force reset the release branch to match main exactly.
+          git reset --hard origin/main
+
+          if [ -f "$ignore" ]; then
+            cp "$ignore" .gitignore
+            git add .gitignore
+            git commit -m "Update .gitignore from $ignore" || echo "No changes to commit"
+
+            # Untrack the files the flavor excludes. -z keeps paths with spaces
+            # intact, and the list is materialised before removing anything so
+            # that git is not asked to re-read a changing index.
+            git ls-files -c -i -z --exclude-from=.gitignore >/tmp/excluded
+            if [ -s /tmp/excluded ]; then
+              xargs -0 -a /tmp/excluded git rm --cached --quiet
+              git commit -m "Remove files excluded by $ignore"
+            else
+              echo "No files to remove"
+            fi
+          fi
+
+          git push --force origin "$branch"
