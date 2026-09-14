@@ -1,5 +1,5 @@
 // Import the resume template components
-#import "@preview/ttq-classic-resume:0.2.0": item-grid, project-entry, resume, resume-header, section-header, timeline-entry
+#import "@preview/ttq-classic-resume:0.1.0": item-grid, project-entry, resume, resume-header, section-header, timeline-entry
 
 // Apply the resume styling to the document.
 // Anything can be adjusted here, for example:

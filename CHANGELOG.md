@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0
+## Unreleased
 
 ### Breaking
 
@@ -10,8 +10,8 @@
   the migration is a rename:
 
   ```diff
-  -#import "@preview/ttq-classic-resume:0.1.0": .., table, ..
-  +#import "@preview/ttq-classic-resume:0.2.0": .., item-grid, ..
+  -#import "@preview/ttq-classic-resume:<old>": .., table, ..
+  +#import "@preview/ttq-classic-resume:<new>": .., item-grid, ..
 
   -#table(items: (..), columns: 2)
   +#item-grid(items: (..), columns: 2)

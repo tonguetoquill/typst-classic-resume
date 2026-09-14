@@ -21,7 +21,7 @@ See the [template](template/resume.typ) for a complete working resume.
 **Using Typst CLI:**
 
 ```bash
-typst init @preview/ttq-classic-resume:0.2.0
+typst init @preview/ttq-classic-resume:0.1.0
 typst compile resume.typ
 ```
 
@@ -32,7 +32,7 @@ Click "Start from template" and search for `ttq-classic-resume`.
 ## Usage
 
 ```typ
-#import "@preview/ttq-classic-resume:0.2.0": item-grid, project-entry, resume, resume-header, section-header, timeline-entry
+#import "@preview/ttq-classic-resume:0.1.0": item-grid, project-entry, resume, resume-header, section-header, timeline-entry
 
 #show: resume
 
