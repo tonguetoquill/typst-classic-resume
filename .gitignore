@@ -1,3 +1,9 @@
+.gitignore~*
+.github/
+reference/
+scripts/
+tests/
 pdfs/
-*.pdf
-.DS_Store
+**.pdf
+template/
+thumbnail.png
