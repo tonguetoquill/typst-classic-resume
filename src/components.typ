@@ -61,7 +61,12 @@
     heading(level: 1, name)
     v(cfg.entry-spacing)
 
-    let separator = [~~#text(size: cfg.contact-separator-size, cfg.contact-separator)~~]
+    // A box rather than spaces, so that the padding is a real length and the
+    // separator still cannot be split from the contacts on either side.
+    let separator = box(
+      inset: (x: cfg.contact-separator-padding),
+      text(size: cfg.contact-separator-size, cfg.contact-separator),
+    )
     contacts
       .map(contact => if link-contacts { auto-link(contact) } else { contact })
       .join(separator)

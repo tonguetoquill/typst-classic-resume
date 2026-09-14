@@ -177,7 +177,8 @@ are exported as `default-config` if you want to read or derive from them.
 | `entry-spacing`          | `5pt`                                                     | Extra space above an entry or a grid.                   |
 | `name-size`              | `18pt`                                                    | Size of the name.                                       |
 | `contact-separator`      | `"❖"`                                                     | Separator between contacts.                             |
-| `contact-separator-size` | `8pt`                                                     | Size of that separator.                                 |
+| `contact-separator-size` | `7pt`                                                     | Size of that separator.                                 |
+| `contact-separator-padding` | `0.5em`                                                | Space on each side of that separator.                   |
 | `rule-stroke`            | `0.75pt`                                                  | Rule under a section header.                            |
 | `marker-size`            | `3.5pt`                                                   | Side of the square bullet.                              |
 | `marker-baseline`        | `-0.07em`                                                 | Baseline offset that centres the bullet on the text.    |

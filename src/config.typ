@@ -22,10 +22,12 @@
   section-spacing: 5pt,
   entry-spacing: 5pt,
 
-  // Resume header.
+  // Resume header. The separator keeps its own padding so that the space
+  // around it does not change when its size does.
   name-size: 18pt,
   contact-separator: "❖",
-  contact-separator-size: 8pt,
+  contact-separator-size: 7pt,
+  contact-separator-padding: 0.5em,
 
   // Rule drawn underneath a section header. The gap between the rule and the
   // first entry of the section comes from that entry's `entry-spacing`.

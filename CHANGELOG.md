@@ -63,6 +63,11 @@
   or a phone number become links in the PDF. Pass `link-contacts: false` to turn
   this off, or pass content instead of a string to opt a single contact out.
 
+- `contact-separator-padding`, the space on each side of the diamond between
+  contacts. It used to be two non-breaking spaces, so it could not be adjusted
+  and it changed with the body size rather than with the separator. The diamond
+  is now slightly smaller (7pt) and slightly further from its neighbours.
+
 - A test suite (`scripts/test.sh`) covering every component, every configuration
   key and the error cases, run by CI against the oldest and newest supported
   Typst releases. Warnings are treated as failures.

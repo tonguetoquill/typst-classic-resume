@@ -14,6 +14,7 @@
   name-size: 24pt,
   contact-separator: "|",
   contact-separator-size: 10pt,
+  contact-separator-padding: 1em,
   rule-stroke: 2pt + gray,
   marker-size: 6pt,
   marker-baseline: -0.15em,
@@ -24,7 +25,7 @@
 
 // Every key must be accepted, or `resume` would have panicked above.
 #assert(
-  default-config.keys().len() == 16,
+  default-config.keys().len() == 17,
   message: "update this test when a configuration key is added or removed",
 )
 
