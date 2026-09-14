@@ -1,8 +1,0 @@
-.gitignore~*
-.github/
-reference/
-scripts/
-tests/
-pdfs/
-**.pdf
-fonts/
