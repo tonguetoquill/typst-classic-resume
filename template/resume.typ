@@ -1,11 +1,15 @@
 // Import the resume template components
-#import "@preview/ttq-classic-resume:0.1.0": project-entry, resume, resume-header, section-header, table, timeline-entry
+#import "@preview/ttq-classic-resume:0.2.0": item-grid, project-entry, resume, resume-header, section-header, timeline-entry
 
-// Apply the resume styling to the document
+// Apply the resume styling to the document.
+// Anything can be adjusted here, for example:
+//   #show: resume.with(size: 11pt, margin: 0.75in)
+// See the README for the full list of options.
 #show: resume
 
-// Create your header with name and contact information
-// Contacts are separated by ❖ symbols automatically
+// Your name and contact line. The name also becomes the title of the exported
+// PDF. Contacts are separated by ❖ automatically, and email addresses, links
+// and phone numbers among them become clickable in the PDF.
 #resume-header(
   name: "John Doe",
   contacts: (
@@ -20,9 +24,9 @@
 // Section headers create titled sections with an underline
 #section-header("Active Certifications")
 
-// Use table for lists of items (certifications, awards, etc.)
-// The table component auto-detects flat vs categorized structure
-#table(
+// Use item-grid for lists of short items (certifications, awards, etc.)
+// It auto-detects flat vs categorized structure from the first item
+#item-grid(
   items: (
     [Offensive Security Certified Professional (OSCP)],
     [GIAC Cyber Threat Intelligence (GCTI)],
@@ -34,9 +38,9 @@
 
 #section-header("Skills")
 
-// Use table for categorized information like skills
+// Use item-grid for categorized information like skills
 // Each item has a 'category' and 'text'
-#table(
+#item-grid(
   items: (
     (category: "Programming", text: [Python, R, JS, C\#, Rust, PowerShell, CI/CD]),
     (category: "Data Science", text: [ML/statistics, TensorFlow, AI Engineering]),
@@ -101,7 +105,7 @@
 
 #section-header("Education")
 
-// Education entries use the same entry_block component
+// Education entries use the same timeline-entry component
 // Omit the body parameter if you don't need content
 #timeline-entry(
   heading-left: "Carnegie Mellon University",
